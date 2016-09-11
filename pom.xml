@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.admitone</groupId>
-    <artifactId>admintone</artifactId>
+    <artifactId>admitone</artifactId>
     <version>0.1.0</version>
 
     <parent>
