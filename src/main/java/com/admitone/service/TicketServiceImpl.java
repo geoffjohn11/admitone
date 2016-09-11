@@ -20,6 +20,10 @@ public class TicketServiceImpl implements TicketService {
 
     public void processExchange(String username, Long fromShowId, int newTicketCount, Long toShowId){
         Purchase fromPurchase = purchaseService.fetchByUsernameAndShowIdPK(new UsernameShowIdPK(username, fromShowId));
+
+        if(fromPurchase == null)
+            throw new IllegalArgumentException("Invalid Purchase to be exchanged");
+
         validateTicketCount(fromPurchase.getTicketCount(), newTicketCount);
 
         if(fromPurchase.getTicketCount() == newTicketCount){
@@ -43,6 +47,10 @@ public class TicketServiceImpl implements TicketService {
 
     public void processCancellation(String username, Long showId, int newTicketCount){
         Purchase purchase = purchaseService.fetchByUsernameAndShowIdPK(new UsernameShowIdPK(username, showId));
+
+        if(purchase == null)
+            throw new IllegalArgumentException("Invalid Purchase to be canceled");
+
         validateTicketCount(purchase.getTicketCount(), newTicketCount);
         int ticketsToKeep = purchase.getTicketCount() - newTicketCount;
 

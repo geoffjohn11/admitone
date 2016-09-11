@@ -15,7 +15,7 @@ public class PurchaseController {
     @Autowired
     private PurchaseService purchaseService;
 
-    @RequestMapping(value = "/purchase", method = RequestMethod.PUT)
+    @RequestMapping(value = "/purchase", method = RequestMethod.POST)
     public ResponseEntity<Purchase> process(@RequestBody Purchase purchase) {
         return new ResponseEntity<Purchase>(purchaseService.processPurchase(purchase), HttpStatus.OK);
     }
