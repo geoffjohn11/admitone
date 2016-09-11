@@ -24,6 +24,9 @@ public class TicketServiceImpl implements TicketService {
         if(fromPurchase == null)
             throw new IllegalArgumentException("Invalid Purchase to be exchanged");
 
+        if(newTicketCount <= 0)
+            throw new IllegalArgumentException("Ticket exchange must be positive");
+
         validateTicketCount(fromPurchase.getTicketCount(), newTicketCount);
 
         if(fromPurchase.getTicketCount() == newTicketCount){
@@ -50,6 +53,9 @@ public class TicketServiceImpl implements TicketService {
 
         if(purchase == null)
             throw new IllegalArgumentException("Invalid Purchase to be canceled");
+
+        if(newTicketCount <= 0)
+            throw new IllegalArgumentException("Ticket cancellation must be positive");
 
         validateTicketCount(purchase.getTicketCount(), newTicketCount);
         int ticketsToKeep = purchase.getTicketCount() - newTicketCount;

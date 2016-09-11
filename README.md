@@ -17,7 +17,7 @@ To use the app GUI:
 
     navigate to https://localhost:8443/index.html#/search
 
-## sample PUT purchase data
+## sample POST purchase data
 
     curl -k -H "Content-Type: application/json" -X POST -d '{"usernameShowIdPK":{"username":"me", "showId":"1"}, "ticketCount":"50"}' https://localhost:8443/purchase
 
