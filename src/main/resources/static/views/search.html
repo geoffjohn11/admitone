@@ -1,0 +1,36 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <!--Sidebar content-->
+            Event Id Start: <input ng-model="purchase.fromShowId">
+            Event ID End: <input ng-model="purchase.toShowId">
+            <button ng-click="search(purchase)" class="btn btn-primary" type="button">Search</button>
+        </div>
+    </div>
+</div>
+
+
+    <div class='panel panel-info'>
+        <div class="panel-heading">
+            <h3 class="panel-title">Search Results</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Event ID</th>
+                    <th>Customer</th>
+                    <th>Tickets</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="result in results">
+                        <td>{{ result.usernameShowIdPK.showId }}</td>
+                        <td>{{ result.usernameShowIdPK.username }}</td>
+                        <td>{{ result.ticketCount }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
