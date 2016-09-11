@@ -19,12 +19,12 @@ To use the app GUI:
 
 ## sample PUT purchase data
 
-    curl -H "Content-Type: application/json" -X PUT -d '{"usernameShowIdPK":{"username":"me", "showId":"1"}, "ticketCount":"50"}' https://localhost:8443/purchase
+    curl -k -H "Content-Type: application/json" -X POST -d '{"usernameShowIdPK":{"username":"me", "showId":"1"}, "ticketCount":"50"}' https://localhost:8443/purchase
 
 ## sample POST exchange purchase
 
-    curl -H "Content-Type: application/json" -X POST -d '{"username":"xyz", "fromShowId":"1","toShowId":"2", "ticketCount":"35"}' https://localhost:8443/exchange
+    curl -k -H "Content-Type: application/json" -X POST -d '{"username":"me", "fromShowId":"1","toShowId":"2", "ticketCount":"35"}' https://localhost:8443/exchange
 
 ## sample POST cancel purchase
 
-    curl -H "Content-Type: application/json" -X POST -d '{"username":"xyz", "showId":"2", "ticketCount":"2"}' https://localhost:8443/cancel                  
+    curl -k -H "Content-Type: application/json" -X POST -d '{"username":"me", "showId":"2", "ticketCount":"2"}' https://localhost:8443/cancel                  
