@@ -39,6 +39,11 @@ public class PurchaseServiceImpl implements PurchaseService {
     }
 
     public Purchase processPurchase(Purchase purchase){
+
+        if(purchase.getTicketCount() <= 0){
+            throw new IllegalArgumentException("Ticket count must be positive");
+        }
+
         Purchase fetchedPurchase = fetchByUsernameAndShowIdPK(purchase.getUsernameShowIdPK());
         if(fetchedPurchase == null) {
             //customer has no previous order for this show
